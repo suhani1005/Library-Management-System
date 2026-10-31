@@ -28,5 +28,3 @@ The Library Management System is a web-based application developed to manage lib
 - Apache Tomcat Server
 - MySQL Workbench
 
-## Project Type
-Academic Project – Application Innovation Project (AIP)
