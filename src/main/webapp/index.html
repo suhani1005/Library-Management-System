@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Library | Read, Learn, Grow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #174b3b;
+            --dark-green: #12382e;
+            --cream: #faf6ed;
+            --beige: #eee4d1;
+            --text: #263c33;
+            --muted: #65746b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Navigation */
+
+        .navbar {
+            min-height: 82px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            padding: 15px 5%;
+            background: rgba(250, 246, 237, 0.97);
+            border-bottom: 1px solid #e9dfce;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--green);
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .brand-icon {
+            font-size: 37px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark-green);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #a27b42;
+        }
+
+        .nav-button {
+            background: var(--green);
+            color: white !important;
+            padding: 11px 22px;
+            border-radius: 30px;
+        }
+
+        .nav-button:hover {
+            background: #24654f;
+        }
+
+        /* Hero section */
+
+        .hero {
+            min-height: 475px;
+            display: flex;
+            align-items: center;
+            padding: 65px 7%;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(250, 246, 237, 0.99) 0%,
+                    rgba(250, 246, 237, 0.96) 38%,
+                    rgba(250, 246, 237, 0.25) 100%
+                ),
+                url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1800&q=85');
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 610px;
+        }
+
+        .eyebrow {
+            color: #758347;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(38px, 5vw, 60px);
+            color: var(--green);
+            line-height: 1.12;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 490px;
+            font-size: 17px;
+            color: #53675d;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: var(--green);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #24654f;
+        }
+
+        .button-outline {
+            border: 1.5px solid var(--green);
+            color: var(--green);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .button-outline:hover {
+            background: white;
+        }
+
+        /* Features */
+
+        .features {
+            padding: 55px 5% 65px;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #758347;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .features h2 {
+            color: var(--green);
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin: 8px 0;
+        }
+
+        .section-description {
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.72);
+            padding: 28px 20px;
+            border: 1px solid #eee4d5;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(48, 57, 42, 0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(48, 57, 42, 0.11);
+        }
+
+        .feature-icon {
+            width: 62px;
+            height: 62px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 17px;
+            border-radius: 50%;
+            background: #e3eadb;
+            font-size: 29px;
+        }
+
+        .feature-card h3 {
+            color: var(--green);
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+            margin-bottom: 9px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* Call to action */
+
+        .cta {
+            margin: 0 5% 55px;
+            padding: 35px 25px;
+            background: #e9e4d3;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--green);
+            font-size: 29px;
+            margin-bottom: 8px;
+        }
+
+        .cta p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+
+        .footer {
+            padding: 25px 5%;
+            background: var(--dark-green);
+            color: #f8f4e9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: #e0e7df;
+        }
+
+        /* Responsive layout */
+
+        @media (max-width: 950px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 17px;
+                flex-wrap: wrap;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero {
+                background-position: 60% center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                justify-content: center;
+                padding: 18px 5%;
+            }
+
+            .brand {
+                font-size: 21px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 13px 18px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 420px;
+                padding: 45px 7%;
+                background:
+                    linear-gradient(
+                        rgba(250, 246, 237, 0.91),
+                        rgba(250, 246, 237, 0.91)
+                    ),
+                    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=80');
+                background-size: cover;
+                background-position: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .features {
+                padding: 40px 5%;
+            }
+
+            .features h2 {
+                font-size: 30px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 25px;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="brand">
+            <span class="brand-icon">📖</span>
+            <span>My Library</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="books">Explore Books</a>
+            <a href="add-book">Add Book</a>
+            <a href="register">Register</a>
+            <a href="login" class="nav-button">Login →</a>
+        </div>
+
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">✦ Read · Learn · Grow ✦</div>
+
+            <h1>A World of Books, At Your Fingertips</h1>
+
+            <p>
+                Discover knowledge, explore your favourite books, and
+                manage your library with a simple and elegant experience.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="books" class="button button-primary">
+                    📚 Explore Books →
+                </a>
+
+                <a href="register" class="button button-outline">
+                    Join Our Library
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Features Section -->
+
+    <section class="features">
+
+        <div class="section-label">A Better Reading Experience</div>
+
+        <h2>Everything Your Library Needs</h2>
+
+        <p class="section-description">
+            Simple tools to make book management easier.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Explore Books</h3>
+                <p>Browse your library collection and discover available books.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔎</div>
+                <h3>Quick Search</h3>
+                <p>Find books quickly using the search feature.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✏️</div>
+                <h3>Easy Management</h3>
+                <p>Add, update, and manage book information conveniently.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>Secure Access</h3>
+                <p>Sign in to access the protected book management pages.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Call to Action -->
+
+    <section class="cta">
+
+        <h2>Your Next Favourite Book Awaits</h2>
+
+        <p>
+            Start exploring our collection and make every reading moment count.
+        </p>
+
+        <a href="books" class="button button-primary">
+            Discover Books →
+        </a>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="footer-brand">📖 My Library</div>
+
+        <p>Built with care using Java, JSP, Servlets and MySQL.</p>
+
+        <p>Read More. Learn More. Grow More. 🌿</p>
+
+    </footer>
+
+</body>
+</html>
